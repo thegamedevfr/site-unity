@@ -19,7 +19,8 @@
                 console.log("Message reçu de l'origine:", event.origin);
                 console.log("Données du message:", event.data);
 
-                if (event.origin !== "https://thegamedevfr.github.io/testtt/") {
+                // Mise à jour de l'URL d'origine autorisée
+                if (event.origin !== "https://thegamedevfr.github.io") {
                     console.log("Origine non autorisée:", event.origin);
                     return;
                 }
