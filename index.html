@@ -10,7 +10,13 @@
             window[nomVar] = valeurVar;
             const para = document.createElement("p");
             para.textContent = `Variable ${nomVar}: ${window[nomVar]}`;
-            document.getElementById('resultat').appendChild(para);
+            const resultatDiv = document.getElementById('resultat');
+            if (resultatDiv) {
+                console.log("Element 'resultat' trouvé");
+                resultatDiv.appendChild(para);
+            } else {
+                console.log("Element 'resultat' non trouvé");
+            }
         }
 
         window.onload = function() {
@@ -19,7 +25,6 @@
                 console.log("Message reçu de l'origine:", event.origin);
                 console.log("Données du message:", event.data);
 
-                // Temporarily ignoring the origin verification for testing
                 try {
                     const data = JSON.parse(event.data);
                     console.log("Données parsées:", data);
