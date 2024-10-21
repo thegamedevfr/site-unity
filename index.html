@@ -19,6 +19,8 @@
             if (resultatDiv) {
                 console.log("Element 'resultat' trouvé");
                 resultatDiv.innerText += `Variable ${nomVar}: ${window[nomVar]}\n`;
+                // Ajout de variables directement au contenu statique pour test
+                resultatDiv.innerHTML += `<p>Variable Test Nom: ${nomVar}, Test Valeur: ${valeurVar}</p>`;
             } else {
                 console.log("Element 'resultat' non trouvé");
             }
