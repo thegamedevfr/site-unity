@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage de Variables</title>
+    <script>
+        function afficherVariable(nomVar, valeurVar) {
+            // Créer une variable dynamique
+            window[nomVar] = valeurVar;
+
+            // Afficher la variable sur la page
+            const para = document.createElement("p");
+            para.textContent = `Variable ${nomVar}: ${window[nomVar]}`;
+            document.getElementById('resultat').appendChild(para);
+        }
+
+        window.onload = function() {
+            // Écouter les messages d'autres fenêtres
+            window.addEventListener("message", function(event) {
+                if (event.origin !== "http://ton-site.com") return; // Change cette ligne pour autoriser seulement ton site
+                const data = JSON.parse(event.data);
+                afficherVariable(data.nomVar, data.valeurVar);
+            }, false);
+        }
+    </script>
+</head>
+<body>
+    <h1>Créer et afficher une variable</h1>
+    <div id="resultat"></div>
+</body>
+</html>
