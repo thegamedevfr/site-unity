@@ -43,6 +43,12 @@
                     console.log("Erreur de parsing des données:", e);
                 }
             }, false);
+
+            // Ajout d'un contenu statique pour vérifier l'affichage
+            const resultatDiv = document.getElementById('resultat');
+            if (resultatDiv) {
+                resultatDiv.innerText += `Test Statique: Ceci est un contenu statique pour vérifier l'affichage\n`;
+            }
         }
     </script>
 </head>
