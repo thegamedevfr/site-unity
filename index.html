@@ -16,13 +16,21 @@
         window.onload = function() {
             console.log("Page de réception chargée");
             window.addEventListener("message", function(event) {
-                if (event.origin !== "https://thegamedevfr.github.io/testtt/") {
-                    console.log("Origine non autorisée:", event.origin);
-                    return;
+                console.log("Message reçu de l'origine:", event.origin);
+                console.log("Données du message:", event.data);
+
+                // Vérifier si les données sont bien reçues
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.nomVar && data.valeurVar) {
+                        console.log("Données valides reçues");
+                        afficherVariable(data.nomVar, data.valeurVar);
+                    } else {
+                        console.log("Données invalides reçues:", data);
+                    }
+                } catch (e) {
+                    console.log("Erreur de parsing des données:", e);
                 }
-                console.log("Message reçu:", event.data);
-                const data = JSON.parse(event.data);
-                afficherVariable(data.nomVar, data.valeurVar);
             }, false);
         }
     </script>
