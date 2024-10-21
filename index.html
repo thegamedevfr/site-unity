@@ -6,6 +6,7 @@
     <title>Affichage de Variables</title>
     <script>
         function afficherVariable(nomVar, valeurVar) {
+            console.log(`Affichage de la variable ${nomVar} avec la valeur ${valeurVar}`);
             window[nomVar] = valeurVar;
             const para = document.createElement("p");
             para.textContent = `Variable ${nomVar}: ${window[nomVar]}`;
@@ -13,8 +14,13 @@
         }
 
         window.onload = function() {
+            console.log("Page de réception chargée");
             window.addEventListener("message", function(event) {
-                if (event.origin !== "https://thegamedevfr.github.io/testtt/") return;
+                if (event.origin !== "https://thegamedevfr.github.io/testtt/") {
+                    console.log("Origine non autorisée:", event.origin);
+                    return;
+                }
+                console.log("Message reçu:", event.data);
                 const data = JSON.parse(event.data);
                 afficherVariable(data.nomVar, data.valeurVar);
             }, false);
