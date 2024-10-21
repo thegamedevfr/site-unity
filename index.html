@@ -18,7 +18,7 @@
         window.onload = function() {
             // Écouter les messages d'autres fenêtres
             window.addEventListener("message", function(event) {
-                if (event.origin !== "https://thegamedevfr.github.io/site-unity/") return; // Change cette ligne pour autoriser seulement ton site
+                if (event.origin !== "https://thegamedevfr.github.io/testtt/") return; // Change cette ligne pour autoriser seulement ton site
                 const data = JSON.parse(event.data);
                 afficherVariable(data.nomVar, data.valeurVar);
             }, false);
