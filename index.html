@@ -19,13 +19,11 @@
                 console.log("Message reçu de l'origine:", event.origin);
                 console.log("Données du message:", event.data);
 
-                // Autoriser uniquement les messages provenant de l'URL spécifique
                 if (event.origin !== "https://thegamedevfr.github.io/testtt/") {
                     console.log("Origine non autorisée:", event.origin);
                     return;
                 }
 
-                // Vérifier si les données sont bien reçues
                 try {
                     const data = JSON.parse(event.data);
                     console.log("Données parsées:", data);
