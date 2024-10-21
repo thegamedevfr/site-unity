@@ -18,12 +18,10 @@
         function afficherVariable(nomVar, valeurVar) {
             console.log(`Affichage de la variable ${nomVar} avec la valeur ${valeurVar}`);
             window[nomVar] = valeurVar;
-            const para = document.createElement("p");
-            para.textContent = `Variable ${nomVar}: ${window[nomVar]}`;
             const resultatDiv = document.getElementById('resultat');
             if (resultatDiv) {
                 console.log("Element 'resultat' trouvé");
-                resultatDiv.appendChild(para);
+                resultatDiv.innerHTML += `<p>Variable ${nomVar}: ${window[nomVar]}</p>`;
             } else {
                 console.log("Element 'resultat' non trouvé");
             }
