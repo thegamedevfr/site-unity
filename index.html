@@ -18,6 +18,7 @@
             console.log(`Affichage de la variable ${nomVar} avec la valeur ${valeurVar}`);
             window[nomVar] = valeurVar;
             variables.push({ nomVar, valeurVar });
+            alert(`Variable ${nomVar}: ${window[nomVar]}`); // Alerte pour forcer l'affichage
         }
 
         function afficherVariablesStockées() {
@@ -27,6 +28,7 @@
                 resultatDiv.innerHTML = ""; // Effacer le contenu existant
                 variables.forEach(variable => {
                     resultatDiv.innerHTML += `Variable ${variable.nomVar}: ${variable.valeurVar}\n`;
+                    alert(`Variable ${variable.nomVar}: ${variable.valeurVar}`); // Alerte pour chaque variable
                 });
             } else {
                 console.log("Element 'resultat' non trouvé pour affichage forcé");
