@@ -30,6 +30,20 @@
             }, 100); // Pause de 100 ms avant d'ajouter le texte
         }
 
+        function afficherVariablesStockées() {
+            const resultatDiv = document.getElementById('resultat');
+            if (resultatDiv) {
+                console.log("Element 'resultat' trouvé pour affichage forcé");
+                resultatDiv.innerHTML = ""; // Effacer le contenu existant
+                variables.forEach(variable => {
+                    resultatDiv.innerHTML += `Variable ${variable.nomVar}: ${variable.valeurVar}\n`;
+                    alert(`Variable ${variable.nomVar}: ${variable.valeurVar}`); // Alerte pour chaque variable
+                });
+            } else {
+                console.log("Element 'resultat' non trouvé pour affichage forcé");
+            }
+        }
+
         window.onload = function() {
             console.log("Page de réception chargée");
             window.addEventListener("message", function(event) {
