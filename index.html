@@ -12,17 +12,24 @@
         }
     </style>
     <script>
+        let variables = []; // Tableau pour stocker les variables reçues
+
         function afficherVariable(nomVar, valeurVar) {
             console.log(`Affichage de la variable ${nomVar} avec la valeur ${valeurVar}`);
             window[nomVar] = valeurVar;
+            variables.push({ nomVar, valeurVar });
+        }
+
+        function afficherVariablesStockées() {
             const resultatDiv = document.getElementById('resultat');
             if (resultatDiv) {
-                console.log("Element 'resultat' trouvé");
-                resultatDiv.innerText += `Variable ${nomVar}: ${window[nomVar]}\n`;
-                // Ajout de variables directement au contenu statique pour test
-                resultatDiv.innerHTML += `<p>Variable Test Nom: ${nomVar}, Test Valeur: ${valeurVar}</p>`;
+                console.log("Element 'resultat' trouvé pour affichage forcé");
+                resultatDiv.innerHTML = ""; // Effacer le contenu existant
+                variables.forEach(variable => {
+                    resultatDiv.innerHTML += `Variable ${variable.nomVar}: ${variable.valeurVar}\n`;
+                });
             } else {
-                console.log("Element 'resultat' non trouvé");
+                console.log("Element 'resultat' non trouvé pour affichage forcé");
             }
         }
 
@@ -57,5 +64,6 @@
 <body>
     <h1>Créer et afficher une variable</h1>
     <div id="resultat"></div>
+    <button onclick="afficherVariablesStockées()">Afficher les Variables Stockées</button> <!-- Nouveau bouton -->
 </body>
 </html>
