@@ -10,9 +10,6 @@
             padding: 10px;
             color: red; /* Rendre le texte visible en rouge */
         }
-        p {
-            margin: 5px 0; /* Espacement entre les paragraphes */
-        }
     </style>
     <script>
         function afficherVariable(nomVar, valeurVar) {
@@ -21,7 +18,7 @@
             const resultatDiv = document.getElementById('resultat');
             if (resultatDiv) {
                 console.log("Element 'resultat' trouvé");
-                resultatDiv.innerHTML += `<p>Variable ${nomVar}: ${window[nomVar]}</p>`;
+                resultatDiv.innerText += `Variable ${nomVar}: ${window[nomVar]}\n`;
             } else {
                 console.log("Element 'resultat' non trouvé");
             }
