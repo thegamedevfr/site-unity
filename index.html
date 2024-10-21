@@ -19,7 +19,7 @@
                 console.log("Message reçu de l'origine:", event.origin);
                 console.log("Données du message:", event.data);
 
-                // Ignorer la vérification de l'origine pour tester
+                // Temporarily ignoring the origin verification for testing
                 try {
                     const data = JSON.parse(event.data);
                     console.log("Données parsées:", data);
