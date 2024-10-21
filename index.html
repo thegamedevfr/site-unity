@@ -8,7 +8,6 @@
         function afficherVariable(nomVar, valeurVar) {
             // Créer une variable dynamique
             window[nomVar] = valeurVar;
-
             // Afficher la variable sur la page
             const para = document.createElement("p");
             para.textContent = `Variable ${nomVar}: ${window[nomVar]}`;
