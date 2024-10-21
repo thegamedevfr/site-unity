@@ -6,18 +6,15 @@
     <title>Affichage de Variables</title>
     <script>
         function afficherVariable(nomVar, valeurVar) {
-            // Créer une variable dynamique
             window[nomVar] = valeurVar;
-            // Afficher la variable sur la page
             const para = document.createElement("p");
             para.textContent = `Variable ${nomVar}: ${window[nomVar]}`;
             document.getElementById('resultat').appendChild(para);
         }
 
         window.onload = function() {
-            // Écouter les messages d'autres fenêtres
             window.addEventListener("message", function(event) {
-                if (event.origin !== "https://thegamedevfr.github.io/testtt/") return; // Change cette ligne pour autoriser seulement ton site
+                if (event.origin !== "https://thegamedevfr.github.io/testtt/") return;
                 const data = JSON.parse(event.data);
                 afficherVariable(data.nomVar, data.valeurVar);
             }, false);
